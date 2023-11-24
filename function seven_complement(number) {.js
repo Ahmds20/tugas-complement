@@ -1,5 +1,5 @@
 //7's complement
-// Start
+// Start program
 function calculateSevensComplement() {
     const inputDecimal = parseInt(document.getElementById('input_decimal3').value);
   
@@ -49,5 +49,5 @@ function calculateSevensComplement() {
     return result;
   }
   
-  // END SEVEN'S COMPLEMENT
+  // End program 
   
