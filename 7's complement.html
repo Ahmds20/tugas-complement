@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7's Complement Calculator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>7's Complement Calculator</h1>
+
+    <label for="inputDecimal">Input Decimal Number:</label>
+    <input type="number" id="inputDecimal" placeholder="Enter a decimal number">
+
+    <button onclick="calculateSevenComplement()">Calculate 7's Complement</button>
+
+    <div class="result" id="result">
+      </div>
+  </div>
+
+  <script>
+    function calculateSevenComplement() {
+      const inputDecimal = parseInt(document.getElementById('inputDecimal').value);
+      const inputOctal = inputDecimal.toString(8);
+      const sevensComplement = calculateSevensComplementFromOctal(inputOctal);
+
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = `Bilangan desimal dari ${inputDecimal} = ${inputOctal} dalam octal \nJadi 7's Complement dari ${inputOctal} adalah ${sevensComplement}`;
+    }
+
+    function calculateSevensComplementFromOctal(octal) {
+      let sevensComplement = '';
+      for (let i = 0; i < octal.length; i++) {
+        const digit = parseInt(octal[i], 8);
+        const complement = 7 - digit;
+        sevensComplement += complement.toString(8);
+      }
+      return sevensComplement;
+    }
+  </script>
+</body>
+</html>
